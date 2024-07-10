@@ -1,9 +1,6 @@
-import { redirect } from 'next/navigation';
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
-export const TIMES = ['morning', 'afternoon', 'evening'];
-
-export const goUserTodos = async (formData: FormData) => {
-  // 'use server';
-  const userId = formData.get('userId');
-  redirect(`/ssg/${userId}`);
-};
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
