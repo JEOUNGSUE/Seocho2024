@@ -49,7 +49,7 @@ function f9() {
 //     }
 // }
 f9();
-console.log('globalThis.x>>' globalThis.x);
+console.log('globalThis.x>>' , globalThis.x);
 
 console.log('====================');
 const nine = new f9();
