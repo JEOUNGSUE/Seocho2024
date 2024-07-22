@@ -1,18 +1,28 @@
 import { useState } from 'react';
-import './App.css';
-import Button from './components/Button';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 
-function App() {
-  const [count, setCount] = useState(0);
+const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
-    <>
-      <div className="App">
-        <h1>Undefined</h1>
-        <Button />
-      </div>
-    </>
+    <div className={'${darkMode && "dark"} font-quickSand'}>
+      <Header
+        toggLeDarkMode={toggleDarkMode}
+        darkMode={darkMode}
+        toggLeSidebar={toggleSidebar}
+      />
+
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+    </div>
   );
-}
+};
 
 export default App;
